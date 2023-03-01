@@ -1,0 +1,53 @@
+.btn-1 {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-primary);
+    transition: $tras-5;
+    z-index: 1;
+    border-radius: 6px;
+    padding: 10px 20px;
+    @include text($fs-16, $fw-500, var(--color-primary), uppercase);
+    &::before {
+        content: "";
+        z-index: -1;
+        background: var(--color-primary);
+        height: 100%;
+        width: 0;
+        @include posAbsolute(tl, 0, 0);
+        transition: $tras-5;
+    }
+    &:hover {
+        color: var(--color-white);
+        &:before {
+            width: 100%;
+        }
+    }
+    &.btn-small{
+        font-size: 12px;
+    }
+}
+.btn-2 {
+    background-color: var(--color-primary-opacity);
+    color: var(--color-primary-text);
+    &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+    &.delete {
+        background-color: var(--color-red-1);
+        color: var(--color-red-2);
+        &:hover {
+            background-color: var(--color-red-3);
+            color: var(--color-white);
+        }
+    }
+}
+.btn-outline-light {
+    border: none;
+    color: var(--color-black) !important;
+    &:hover {
+        background-color: transparent;
+        color: var(--color-primary-text) !important;
+    }
+}

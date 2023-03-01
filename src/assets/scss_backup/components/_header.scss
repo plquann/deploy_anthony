@@ -1,0 +1,118 @@
+.header {
+    box-shadow: $boxshadow-1;
+    position: relative;
+    .box {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+    .logo {
+        img {
+            width: 50px;
+        }
+    }
+    .name {
+        margin-right: auto;
+        margin-left: 10px;
+        @include text($fs-20, $fw-600, $color-primary);
+    }
+    .menu {
+        margin-left: auto;
+        ul {
+            li {
+                display: inline-block;
+                margin-left: 40px;
+                a {
+                    transition: $tras-5;
+                    @include text($fs-16, $fw-500, $color-black);
+                }
+                &:hover a {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+    .user {
+        margin-left: 30px;
+        position: relative;
+        padding: 10px 0;
+        cursor: pointer;
+        .avatar {
+            display: flex;
+            align-items: center;
+            img {
+                width: 30px;
+                margin-right: 5px;
+            }
+            span {
+                font-weight: $fw-300;
+            }
+        }
+        ul {
+            @include posAbsolute(tl, 60px, 5px);
+            width: 160px;
+            padding: 15px;
+            background-color: $color-white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+            &:before {
+                content: "";
+                @include posAbsolute(tl, -20px, 0);
+                height: 0;
+                width: 0;
+                border-bottom: 10px solid $color-gray-1;
+                border-right: 10px solid transparent;
+                border-top: 10px solid transparent;
+                border-left: 10px solid transparent;
+            }
+            li {
+                font-weight: $fw-300;
+                font-size: $fs-12;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+                a {
+                    transition: $tras-5;
+                }
+            }
+            .disabled {
+                pointer-events:none; //This makes it not clickable
+                opacity:0.4;         //This grays it out to look disabled
+            }
+        }
+        &:hover {
+            ul {
+                top: 53px;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    .theme-switch {
+        width: 60px;
+        height: 25px;
+        border: 1px solid $color-gray-1;
+        border-radius: 50px;
+        position: relative;
+        cursor: pointer;
+        margin-left: 30px;
+        transition: $tras-5;
+        .switch {
+            @include posAbsolute(tl, 1px, 3px);
+            width: 20px;
+            height: 20px;
+            background: $color-gray-2;
+            border-radius: 50%;
+            transition: $tras-5;
+        }
+        &.active {
+            background-color: $color-primary;
+            .switch {
+                left: 35px;
+                background-color: $color-white;
+            }
+        }
+    }
+}

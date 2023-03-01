@@ -1,0 +1,14 @@
+.breadcrumb {
+    margin-bottom: 30px;
+    li {
+        display: inline-block;
+        font-weight: $fw-300;
+        &:not(:first-child)::before {
+            content: "/";
+            font-family: FontAwesome;
+            font-size: 15px;
+            margin: 0 10px;
+            color: $color-black;
+        }
+    }
+}

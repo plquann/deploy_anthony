@@ -1,0 +1,74 @@
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin text($fs, $fw, $color: $color-black, $text-transform: none) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+    text-transform: $text-transform;
+}
+
+@mixin posAbsolute($direction, $var-1: 0, $var-2: 0) {
+    position: absolute;
+
+    @if $direction == "tl" {
+        top: $var-1;
+        left: $var-2;
+    }
+    @if $direction == "tr" {
+        top: $var-1;
+        right: $var-2;
+    }
+    @if $direction == "bl" {
+        bottom: $var-1;
+        left: $var-2;
+    }
+    @if $direction == "br" {
+        bottom: $var-1;
+        right: $var-2;
+    }
+    @if $direction == "full" {
+        top: $var-1;
+        right: $var-1;
+        bottom: $var-1;
+        left: $var-1;
+    }
+}
+
+@mixin posCenter($direction) {
+    position: absolute;
+    @if $direction == "left" {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @if $direction == "top" {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @if $direction == "both" {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin flexbox($justify-content: unset, $align-items: center, $flex: flex) {
+    display: $flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// Mixins responsive
+@mixin maxWidth($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin minWidth($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}

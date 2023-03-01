@@ -1,0 +1,12 @@
+.footer {
+    background-color: var(--color-primary);
+    padding: 15px;
+    text-align: center;
+    @include text($fs-14, $fw-500, var(--color-primary-opacity));
+}
+body.darkmode {
+    .footer {
+        background-color: #242526;
+        color: #fff;
+    }
+}

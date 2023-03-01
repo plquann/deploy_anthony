@@ -1,0 +1,44 @@
+.sidebar {
+    padding: 70px 15px 15px;
+    border-right: 1px solid $color-primary-border;
+    background-color: $color-primary-opacity-2;
+    height:100%;
+    .list {
+        border-bottom: 1px solid $color-primary-opacity;
+        margin-bottom: 35px;
+        padding-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        li {
+            margin-bottom: 30px;
+            i {
+                background-color: $color-primary-opacity-3;
+                width: 30px;
+                height: 30px;
+                border-radius: 3px;
+                @include flexbox(center, center, inline-flex);
+            }
+            a {
+                color: $color-primary-text;
+                transition: $tras-5;
+                font-size: $fs-14;;
+                &:hover {
+                    color: $color-secondary;
+                }
+            }
+            .box {
+                border: 1px solid #d8e9ff;
+                padding: 15px;
+                .search {
+                    margin-top: 15px;
+                    .form-control {
+                        background-color: rgb(221 236 255);
+                    }
+                }
+            }
+        }
+    }
+}

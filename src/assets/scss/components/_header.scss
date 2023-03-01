@@ -1,0 +1,175 @@
+.header {
+    box-shadow: $boxshadow-1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--color-white-2);
+    .box {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+    .logo {
+        img {
+            width: 50px;
+        }
+    }
+    .name {
+        margin-left: 10px;
+        @include text($fs-20, $fw-600, var(--color-primary), uppercase);
+        @media (max-width: 991px) {
+            & {
+                display: none;
+            }
+        }
+    }
+    .menu {
+        margin-left: auto;
+        ul {
+            li {
+                display: inline-block;
+                margin-left: 40px;
+                a {
+                    transition: $tras-5;
+                    @include text($fs-16, $fw-300, var(--color-black));
+                }
+                &:hover a {
+                    color: var(--color-primary);
+                }
+            }
+        }
+        @media (max-width: 991px) {
+            & {
+                display: none;
+            }
+        }
+    }
+    .user {
+        margin-left: auto;
+        position: relative;
+        padding: 10px 0;
+        cursor: pointer;
+        @media (max-width: 991px) {
+            & {
+                margin-left: auto;
+            }
+        }
+        .avatar {
+            display: flex;
+            align-items: center;
+            img {
+                width: 30px;
+                margin-right: 5px;
+            }
+            span {
+                font-weight: $fw-300;
+                color: var(--color-black);
+            }
+        }
+        ul {
+            @include posAbsolute(tl, 60px, 5px);
+            width: 160px;
+            padding: 15px;
+            background-color: var(--color-white);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+            &:before {
+                content: "";
+                @include posAbsolute(tl, -20px, 0);
+                height: 0;
+                width: 0;
+                border-bottom: 10px solid var(--color-gray-1);
+                border-right: 10px solid transparent;
+                border-top: 10px solid transparent;
+                border-left: 10px solid transparent;
+            }
+            li {
+                font-weight: $fw-300;
+                font-size: $fs-12;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+                &.disabled{
+                    color: var(--color-gray-1);
+                }
+                a {
+                    color: var(--color-black);
+                    transition: $tras-5;
+                }
+            }
+        }
+        &:hover {
+            ul {
+                top: 53px;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    .theme-switch {
+        width: 60px;
+        height: 25px;
+        border: 1px solid var(--color-gray-1);
+        border-radius: 50px;
+        position: relative;
+        cursor: pointer;
+        margin-left: 30px;
+        transition: $tras-5;
+        .switch {
+            @include posAbsolute(tl, 1px, 3px);
+            width: 20px;
+            height: 20px;
+            background: var(--color-gray-2);
+            border-radius: 50%;
+            transition: $tras-5;
+        }
+        &.active {
+            background-color: var(--color-primary);
+            .switch {
+                left: 35px;
+                background-color: #000000;
+            }
+        }
+    }
+    .menu-mobile {
+        position: relative;
+        margin-left: 30px;
+        .icon {
+            font-size: 20px;
+            color: var(--color-black);
+        }
+        ul {
+            @include posAbsolute(tr, 40px, 0);
+            width: 220px;
+            padding: 15px;
+            background-color: var(--color-white-2);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+            li {
+                font-weight: $fw-300;
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+                a {
+                    color: var(--color-black);
+                    transition: $tras-5;
+                }
+            }
+            &.active {
+                top: 45px;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        @media (min-width: 992px) {
+            & {
+                display: none;
+            }
+        }
+    }
+}
